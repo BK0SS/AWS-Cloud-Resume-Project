@@ -1,0 +1,20 @@
+version = 0.1
+
+[default.global.parameters]
+stack_name = "cloud-resume"
+region = "us-west-2"
+
+[default.deploy.parameters]
+region = "us-west-2"
+capabilities = "CAPABILITY_IAM"
+confirm_changeset = true
+resolve_s3 = true
+s3_prefix = "cloud-resume"
+parameter_overrides = "ProjectName=\"cloud-resume\" AllowedOrigin=\"*\""
+profile = "cloud-resume"
+disable_rollback = true
+image_repositories = []
+
+[default.build.parameters]
+cached = true
+parallel = true

@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#0ea5e9"/>
+    </marker>
+    <style>
+      .box { fill:#1e293b; stroke:#38bdf8; stroke-width:1.5; rx:10; ry:10; }
+      .title { fill:#e2e8f0; font-weight:600; font-size:14px; }
+      .sub { fill:#94a3b8; font-size:11px; }
+      .label { fill:#1e293b; font-size:11px; font-weight:500; }
+      .hdr { fill:#0f172a; font-size:18px; font-weight:700; }
+      .arrow { stroke:#0ea5e9; stroke-width:1.8; fill:none; marker-end:url(#arrow); }
+      .group { fill:none; stroke:#334155; stroke-dasharray:4 4; rx:14; ry:14; }
+      .grouplbl { fill:#334155; font-size:11px; font-weight:700; letter-spacing:0.06em; }
+    </style>
+  </defs>
+
+  <rect width="900" height="540" fill="#f8fafc"/>
+  <text x="40" y="38" class="hdr">Cloud Resume — AWS Architecture</text>
+  <text x="40" y="56" class="sub">Static site on S3 + CloudFront · Serverless visitor counter on Lambda + DynamoDB · CI/CD via GitHub Actions + AWS SAM</text>
+
+  <!-- User -->
+  <circle cx="80" cy="280" r="26" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="80" y="285" text-anchor="middle" class="title">User</text>
+  <text x="80" y="320" text-anchor="middle" class="sub">Browser</text>
+
+  <!-- Edge group -->
+  <rect x="160" y="120" width="260" height="320" class="group"/>
+  <text x="170" y="138" class="grouplbl">EDGE &amp; HOSTING</text>
+
+  <!-- CloudFront -->
+  <rect x="190" y="160" width="200" height="70" class="box"/>
+  <text x="290" y="185" text-anchor="middle" class="title">Amazon CloudFront</text>
+  <text x="290" y="205" text-anchor="middle" class="sub">CDN · HTTPS · OAC</text>
+  <text x="290" y="219" text-anchor="middle" class="sub">CachingOptimized policy</text>
+
+  <!-- S3 -->
+  <rect x="190" y="280" width="200" height="80" class="box"/>
+  <text x="290" y="305" text-anchor="middle" class="title">Amazon S3</text>
+  <text x="290" y="324" text-anchor="middle" class="sub">Static site bucket (private)</text>
+  <text x="290" y="340" text-anchor="middle" class="sub">Versioned · BucketOwnerEnforced</text>
+
+  <!-- Compute group -->
+  <rect x="470" y="120" width="260" height="320" class="group"/>
+  <text x="480" y="138" class="grouplbl">SERVERLESS BACKEND</text>
+
+  <!-- API Gateway -->
+  <rect x="500" y="160" width="200" height="70" class="box"/>
+  <text x="600" y="185" text-anchor="middle" class="title">API Gateway (HTTP)</text>
+  <text x="600" y="205" text-anchor="middle" class="sub">POST /visitors · CORS</text>
+  <text x="600" y="219" text-anchor="middle" class="sub">OPTIONS preflight</text>
+
+  <!-- Lambda -->
+  <rect x="500" y="260" width="200" height="70" class="box"/>
+  <text x="600" y="285" text-anchor="middle" class="title">AWS Lambda</text>
+  <text x="600" y="305" text-anchor="middle" class="sub">Python 3.12 · 128 MB</text>
+  <text x="600" y="319" text-anchor="middle" class="sub">app.lambda_handler</text>
+
+  <!-- DynamoDB -->
+  <rect x="500" y="360" width="200" height="70" class="box"/>
+  <text x="600" y="385" text-anchor="middle" class="title">Amazon DynamoDB</text>
+  <text x="600" y="405" text-anchor="middle" class="sub">On-demand · PITR on</text>
+  <text x="600" y="419" text-anchor="middle" class="sub">PK: id (S)  — counter row</text>
+
+  <!-- CI/CD lane -->
+  <rect x="40" y="460" width="820" height="60" class="group"/>
+  <text x="50" y="478" class="grouplbl">CI/CD — GITHUB ACTIONS</text>
+  <text x="170" y="500" class="label">push to main  -&gt;  backend.yml: pytest  -&gt;  sam build  -&gt;  sam deploy</text>
+  <text x="170" y="514" class="label">push to main  -&gt;  frontend.yml: aws s3 sync  -&gt;  cloudfront create-invalidation</text>
+
+  <!-- IaC badge -->
+  <rect x="730" y="60" width="130" height="40" class="box"/>
+  <text x="795" y="78" text-anchor="middle" class="title">AWS SAM</text>
+  <text x="795" y="92" text-anchor="middle" class="sub">infra/template.yaml</text>
+
+  <!-- Arrows -->
+  <!-- User -> CloudFront -->
+  <path d="M108 275 C 140 250, 160 200, 188 195" class="arrow"/>
+  <text x="130" y="225" class="label">HTTPS</text>
+
+  <!-- User -> API Gateway (browser fetch) -->
+  <path d="M108 295 C 230 410, 420 410, 498 220" class="arrow"/>
+  <text x="230" y="428" class="label">fetch POST /visitors</text>
+
+  <!-- CloudFront -> S3 -->
+  <path d="M290 232 L 290 278" class="arrow"/>
+  <text x="298" y="260" class="label">OAC GetObject</text>
+
+  <!-- API GW -> Lambda -->
+  <path d="M600 232 L 600 258" class="arrow"/>
+
+  <!-- Lambda -> DynamoDB -->
+  <path d="M600 332 L 600 358" class="arrow"/>
+  <text x="608" y="350" class="label">UpdateItem ADD :inc</text>
+
+</svg>

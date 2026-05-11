@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bogdan Kosulin — Software developer & cloud engineer in transition, Thompson Rivers University alum." />
+  <title>Bogdan Kosulin — Cloud & Software Engineer</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <h1>Bogdan Kosulin</h1>
+      <p class="tagline">Aspiring Cloud &amp; Software Engineer · Thompson Rivers University</p>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        Early-career developer transitioning into cloud and software engineering.
+        Comfortable in Python, JavaScript, and core CS fundamentals — data structures,
+        algorithms, and software architecture. Currently building hands-on AWS projects
+        to bridge classroom theory with production engineering.
+      </p>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skill-grid">
+        <div class="skill-card">
+          <h3>Cloud / AWS</h3>
+          <ul>
+            <li>S3, CloudFront, ACM</li>
+            <li>Lambda, API Gateway</li>
+            <li>DynamoDB, IAM</li>
+            <li>AWS SAM (IaC)</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Software</h3>
+          <ul>
+            <li>Python, JavaScript</li>
+            <li>HTML5, CSS3</li>
+            <li>Data Structures &amp; Algorithms</li>
+            <li>Software Architecture &amp; Design</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>DevOps</h3>
+          <ul>
+            <li>Git &amp; GitHub</li>
+            <li>GitHub Actions (CI/CD)</li>
+            <li>Unit testing (pytest)</li>
+            <li>Linux fundamentals</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <article class="entry">
+        <h3>Thompson Rivers University (TRU)</h3>
+        <p class="meta">Kamloops, BC · Dean's List 2023 · GPA 3.25</p>
+        <ul>
+          <li>Coursework: Data Structures &amp; Algorithm Analysis, Software Architecture &amp; Design</li>
+          <li>Volunteer: TRU Orientation team</li>
+          <li>Sessional faculty support experience</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="projects">
+      <h2>Featured Project</h2>
+      <article class="entry">
+        <h3>Cloud Resume Challenge</h3>
+        <p class="meta">AWS · Python · AWS SAM · GitHub Actions</p>
+        <p>
+          This very site. Static frontend on S3, served globally via CloudFront with HTTPS.
+          A Lambda + API Gateway backend backed by DynamoDB powers the live visitor counter below.
+          All infrastructure is defined in AWS SAM and deployed through GitHub Actions on every push to <code>main</code>.
+        </p>
+        <p>
+          Visitors so far: <strong id="visitor-count" aria-live="polite">…</strong>
+        </p>
+      </article>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <ul class="contact-list">
+        <li>Email: <a href="mailto:bkosulin@gmail.com">bkosulin@gmail.com</a></li>
+        <li>LinkedIn: <a href="https://www.linkedin.com/" target="_blank" rel="noopener">linkedin.com/in/your-handle</a></li>
+        <li>GitHub: <a href="https://github.com/" target="_blank" rel="noopener">github.com/your-handle</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>© <span id="year"></span> Bogdan Kosulin · Built on AWS</small>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
