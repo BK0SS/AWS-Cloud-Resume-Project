@@ -14,6 +14,11 @@ A serverless, fully-automated personal resume site built on AWS.
 - **CI/CD** — two GitHub Actions workflows ([backend](.github/workflows/backend.yml), [frontend](.github/workflows/frontend.yml)) deploy on every push to `main` using short-lived OIDC credentials (no long-lived AWS keys in GitHub).
 - **Tested** — pytest + moto unit tests for the Lambda handler.
 
+## TODO 2026-05-11
+Test out CI/CD github actions
+Log the tests
+Rebuild project with nextjs/react
+
 ## Repo layout
 
 ```
