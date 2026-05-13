@@ -6,7 +6,7 @@
     "Action": "sts:AssumeRoleWithWebIdentity",
     "Condition": {
       "StringEquals": { "token.actions.githubusercontent.com:aud": "sts.amazonaws.com" },
-      "StringLike": { "token.actions.githubusercontent.com:sub": "repo:https://github.com/BK0SS/AWS-Cloud-Resume-Project:*" }
+      "StringLike": { "token.actions.githubusercontent.com:sub": "repo:BK0SS/AWS-Cloud-Resume-Project:*" }
     }
   }]
 }
